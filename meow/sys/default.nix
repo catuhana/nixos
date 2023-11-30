@@ -5,5 +5,6 @@
     ./locale.nix
     ./networking.nix
     ./security.nix
+    ./ssh.nix
   ];
 }
