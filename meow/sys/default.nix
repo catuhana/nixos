@@ -5,5 +5,5 @@
     ./locale.nix
     ./networking.nix
     ./security.nix
-  ]
+  ];
 }
