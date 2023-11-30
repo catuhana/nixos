@@ -4,6 +4,7 @@
     ./filesystems.nix
     ./locale.nix
     ./networking.nix
+    ./packages.nix
     ./security.nix
     ./ssh.nix
   ];
