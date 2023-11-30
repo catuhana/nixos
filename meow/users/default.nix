@@ -1,8 +1,5 @@
 { pkgs, ... }: {
-  imports = [
-    ./meow.nix
-    ./root.nix
-  ];
+  imports = [ ./meow.nix ./root.nix ];
 
   users = {
     defaultUserShell = pkgs.zsh;

@@ -9,5 +9,5 @@
       label = "Boot";
       fsType = "vfat";
     };
-  }
+  };
 }

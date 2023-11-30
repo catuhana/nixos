@@ -1,3 +1,1 @@
-{ ... }: {
-  users.users."root".hashedPassword = "!";
-}
+{ ... }: { users.users.root.hashedPassword = "!"; }
