@@ -17,10 +17,12 @@
         modules = [
           ./meow/default.nix
           ./config.nix
+
           agenix.nixosModules.default
+
           {
             environment.systemPackages = [
-              agenix.packages.${system}.default
+              agenix.packages.aarch64-linux.default
             ];
           }
         ];
