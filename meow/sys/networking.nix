@@ -1,6 +1,7 @@
 { lib, ... }: {
   networking = {
     hostName = "NixOS";
+    useNetworkd = true;
 
     dhcpcd.enable = false;
 
