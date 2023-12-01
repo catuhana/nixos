@@ -12,12 +12,10 @@
     enable = true;
 
     networks."10-wan" = {
-      DHCP = "ipv4";
-
       matchConfig.name = "enp1s0";
+      networkConfig.DHCP = "ipv4";
 
       address = [ "2a01:4f8:c012:c8b9::/64" ];
-
       routes = [{ routeConfig.Gateway = "fe80::1"; }];
     };
   };
