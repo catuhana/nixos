@@ -1,5 +1,5 @@
 { ... }: {
-  imports = [ ./sys ./users ];
+  imports = [ ./self-hosted ./sys ./users ];
 
   system.stateVersion = "24.05";
 }
