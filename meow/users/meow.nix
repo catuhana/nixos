@@ -1,8 +1,9 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
   users = {
     users.meow = {
       isNormalUser = true;
       description = "tuhana";
+      passwordFile = config.age.secrets.meow-password.path;
       extraGroups = [ "wheel" ];
 
       openssh.authorizedKeys.keys = [
