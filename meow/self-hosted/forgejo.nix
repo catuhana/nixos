@@ -1,5 +1,7 @@
 { ... }: {
     services."forgejo" = {
+        enable = true;
+
         database.type = "postgres";
 
         settings = {
