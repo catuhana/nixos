@@ -11,7 +11,7 @@
 
         specialArgs = { inherit inputs; };
 
-        modules = [ ./meow/config.nix ./config.nix ];
+        modules = [ ./meow/default.nix ./config.nix ];
       };
     };
   };
