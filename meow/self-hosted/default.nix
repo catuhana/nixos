@@ -1,3 +1,3 @@
 { ... }: {
-    imports = [ ./caddy.nix ./postgres.nix ];
+    imports = [ ./caddy.nix ./postgresql.nix ];
 }
