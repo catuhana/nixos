@@ -1,1 +1,5 @@
-{ ... }: { imports = [ ./sys ./users ]; }
+{ ... }: {
+  imports = [ ./sys ./users ];
+
+  system.stateVersion = "24.05";
+}
