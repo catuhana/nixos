@@ -7,8 +7,7 @@
     virtualHosts = {
       "git.tuhana.me" = {
         extraConfig = ''
-          
-                              reverse_proxy localhost:3000
+          reverse_proxy localhost:3000
         '';
       };
     };
