@@ -1,6 +1,6 @@
 { ... }: {
     services."postgresql" = {
-        enabled = true;
+        enable = true;
 
         ensureDatabases = [ "forgejo" ];
     };
