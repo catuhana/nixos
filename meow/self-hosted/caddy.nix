@@ -1,15 +1,16 @@
 { ... }: {
-    services."caddy" = {
-        enable = true;
+  services."caddy" = {
+    enable = true;
 
-        email = "acme@tuhana.me";
+    email = "acme@tuhana.me";
 
-        virtualHosts = {
-            "git.tuhana.me" = {
-                extraConfig = ''
-                    reverse_proxy localhost:3000
-                '';
-            };
-        };
+    virtualHosts = {
+      "git.tuhana.me" = {
+        extraConfig = ''
+          
+                              reverse_proxy localhost:3000
+        '';
+      };
     };
+  };
 }

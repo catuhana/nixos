@@ -15,16 +15,9 @@
         specialArgs = { inherit inputs; };
 
         modules = [
-          ./meow/default.nix
           ./config.nix
 
           agenix.nixosModules.default
-
-          {
-            environment.systemPackages = [
-              agenix.packages.aarch64-linux.default
-            ];
-          }
         ];
       };
     };
