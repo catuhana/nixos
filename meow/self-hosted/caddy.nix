@@ -2,6 +2,6 @@
     services."caddy" = {
         enable = true;
 
-        email = "acme@tuhana.me"
-    }
+        email = "acme@tuhana.me";
+    };
 }
