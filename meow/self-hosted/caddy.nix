@@ -9,7 +9,7 @@
                 extraConfig = ''
                     reverse_proxy localhost:3000
                 '';
-            }
+            };
         };
     };
 }
