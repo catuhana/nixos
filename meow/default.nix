@@ -1,5 +1,5 @@
 { ... }: {
-  imports = [ ./secrets.nix ./self-hosted ./sys ./users ];
+  imports = [ ./secrets.nix ./services ./sys ./users ];
 
   system.stateVersion = "24.05";
 }

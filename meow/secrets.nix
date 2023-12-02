@@ -6,7 +6,7 @@
     };
 
     "self-hosted.forgejo.gitea-actions-runner.token" = {
-      file = ./self-hosted/forgejo/gitea-actions-runner.token.age;
+      file = ./services/self-hosted/forgejo/gitea-actions-runner.token.age;
     };
   };
 }

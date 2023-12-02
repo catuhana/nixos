@@ -5,5 +5,5 @@ let
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOIZ2jEFlMcj1Oum35E9GUQbchTeWwHFePDwwX0VGqck root@NixOS";
 in {
   "./users/meow/password.age".publicKeys = [ meow system ];
-  "./self-hosted/forgejo/gitea-actions-runner.token.age".publicKeys = [ meow system ];
+  "./services/self-hosted/forgejo/gitea-actions-runner.token.age".publicKeys = [ meow system ];
 }
