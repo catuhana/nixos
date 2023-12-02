@@ -27,5 +27,5 @@
     tokenFile = config.age.secrets."self-hosted.forgejo.gitea-actions-runner.token".path;
 
     labels = [ "native:host" ];
- };
+  };
 }
