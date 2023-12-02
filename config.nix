@@ -1,6 +1,4 @@
 { ... }: {
-  imports = [ ./meow ];
-
   nixpkgs.config.allowUnfree = true;
 
   nix = {

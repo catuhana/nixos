@@ -15,7 +15,10 @@
         specialArgs = { inherit inputs; };
 
         modules = [
+          ./meow
+
           ./config.nix
+          ./secrets.nix
 
           agenix.nixosModules.default
         ];
