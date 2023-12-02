@@ -18,7 +18,6 @@
           ./meow
 
           ./config.nix
-          ./secrets.nix
 
           agenix.nixosModules.default
         ];
