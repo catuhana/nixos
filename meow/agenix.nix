@@ -1,10 +1,15 @@
-let
-  meow =
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPLnivFaWe3dvW8ENzeSlMju6d9y/y1tmGNCbdEMivda meow@NixOS";
-  system =
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOIZ2jEFlMcj1Oum35E9GUQbchTeWwHFePDwwX0VGqck root@NixOS";
-in
-{
-  "./users/meow/password.age".publicKeys = [ meow system ];
-  "./services/self-hosted/forgejo/gitea-actions-runner.token.age".publicKeys = [ meow system ];
+{ config, ... }: {
+  age.secrets = {
+    "users.meow.password" = {
+      file = ./users/meow/password.age;
+    };
+
+    "services.self-hosted.forgejo.gitea-actions-runner.token" = {
+      file = ./services/self-hosted/forgejo/gitea-actions-runner.token.age;
+    };
+
+    "services.self-hosted.vaultwarden.admin.token" = {
+      file = ./services/self-hosted/vaultwarden/admin.token.age;
+    };
+  };
 }

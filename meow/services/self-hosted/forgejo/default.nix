@@ -24,7 +24,7 @@
 
     name = config.networking.hostName;
     url = "https://git.tuhana.me";
-    tokenFile = config.age.secrets."self-hosted.forgejo.gitea-actions-runner.token".path;
+    tokenFile = config.age.secrets."services.self-hosted.forgejo.gitea-actions-runner.token".path;
 
     labels = [ "native:host" ];
   };
