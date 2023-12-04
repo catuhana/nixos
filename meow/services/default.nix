@@ -1,1 +1,1 @@
-{ ... }: { imports = [ ./self-hosted ./ssh.nix ]; }
+{ ... }: { imports = [ ./self-hosted ./caddy.nix ./postgresql.nix ./ssh.nix ]; }

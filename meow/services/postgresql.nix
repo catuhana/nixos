@@ -17,8 +17,12 @@
       {
         name = "vaultwarden";
         ensureDBOwnership = true;
-      ]
+      }
+      {
+        name = "nextcloud";
+        ensureDBOwnership = true;
+      }
     ];
-    ensureDatabases = [ "forgejo" "vaultwarden" ];
+    ensureDatabases = [ "forgejo" "vaultwarden" "nextcloud" ];
   };
 }

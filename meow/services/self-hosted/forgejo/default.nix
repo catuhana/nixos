@@ -8,7 +8,9 @@
       session.COOKIE_SECURE = true;
 
       server = {
-        ROOT_URL = "https://git.tuhana.me:443";
+        HTTP_PORT = 10000;
+
+        ROOT_URL = "https://git.tuhana.me";
         DOMAIN = "git.tuhana.me";
         DISABLE_SSH = true;
       };
@@ -28,4 +30,10 @@
 
     labels = [ "native:host" ];
   };
+
+  services."caddy".virtualHosts."git.tuhana.me" = {
+        extraConfig = ''
+          reverse_proxy localhost:${toString config.services."forgejo".settings.server.HTTP_PORT}
+        '';
+      };
 }

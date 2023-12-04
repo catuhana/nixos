@@ -1,1 +1,1 @@
-{ ... }: { imports = [ ./forgejo ./vaultwarden ./caddy.nix ./postgresql.nix ]; }
+{ ... }: { imports = [ ./forgejo ./vaultwarden ]; }
