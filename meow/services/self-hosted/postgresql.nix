@@ -9,10 +9,16 @@
       host    all             all             ::1/128                 trust
     '';
 
-    ensureUsers = [{
-      name = "forgejo";
-      ensureDBOwnership = true;
-    }];
-    ensureDatabases = [ "forgejo" ];
+    ensureUsers = [
+      {
+        name = "forgejo";
+        ensureDBOwnership = true;
+      }
+      {
+        name = "vaultwarden";
+        ensureDBOwnership = true;
+      ]
+    ];
+    ensureDatabases = [ "forgejo" "vaultwarden" ];
   };
 }
