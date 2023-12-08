@@ -32,8 +32,8 @@
   };
 
   services."caddy".virtualHosts."git.tuhana.me" = {
-        extraConfig = ''
-          reverse_proxy localhost:${toString config.services."forgejo".settings.server.HTTP_PORT}
-        '';
-      };
+    extraConfig = ''
+      reverse_proxy localhost:${toString config.services."forgejo".settings.server.HTTP_PORT}
+    '';
+  };
 }
