@@ -1,6 +1,6 @@
 let
   meow =
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPLnivFaWe3dvW8ENzeSlMju6d9y/y1tmGNCbdEMivda meow@NixOS";
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINa12N6GqzfFRh3L02trgWa4ffRzSIWZljce419o57Jp meow@NixOS";
   system =
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOIZ2jEFlMcj1Oum35E9GUQbchTeWwHFePDwwX0VGqck root@NixOS";
 in
