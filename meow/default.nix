@@ -1,5 +1,5 @@
 { ... }: {
-  imports = [ ./agenix.nix ./services ./sys ./users ];
+  imports = [ ./agenix.nix ./services ./system ./users ];
 
   system.stateVersion = "24.05";
 }

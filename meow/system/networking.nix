@@ -1,6 +1,6 @@
 { lib, ... }: {
   networking = {
-    hostName = "NixOS";
+    hostName = "meow";
     useNetworkd = true;
 
     dhcpcd.enable = false;
