@@ -1,27 +1,39 @@
 {
-  description =
-    "Unified configuration for my server and probably my desktops too.";
+  description = "Unified configuration for my server and probably my desktops too.";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     agenix.url = "github:ryantm/agenix";
   };
 
-  outputs = inputs@{ self, nixpkgs, agenix, ... }: {
-    nixosConfigurations = {
-      "meow" = nixpkgs.lib.nixosSystem {
-        system = "aarch64-linux";
+  outputs = inputs@{ self, nixpkgs, agenix, ... }:
+    let
+      supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
+      forEachSupportedSystem = f: nixpkgs.lib.genAttrs supportedSystems (system: f {
+        pkgs = import nixpkgs { inherit system; };
+      });
+    in
+    {
+      nixosConfigurations = {
+        "meow" = nixpkgs.lib.nixosSystem {
+          system = "aarch64-linux";
 
-        specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs; };
 
-        modules = [
-          ./meow
+          modules = [
+            ./meow
 
-          ./config.nix
+            ./config.nix
 
-          agenix.nixosModules.default
-        ];
+            agenix.nixosModules.default
+          ];
+        };
       };
+
+      devShells = forEachSupportedSystem ({ pkgs }: {
+        default = pkgs.mkShell {
+          packages = with pkgs; [ git github-cli vim nixpkgs-fmt ];
+        };
+      });
     };
-  };
 }
