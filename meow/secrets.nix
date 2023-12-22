@@ -6,6 +6,7 @@ let
 in
 {
   "./users/meow/password.age".publicKeys = [ meow system ];
+
   "./services/self-hosted/forgejo/gitea-actions-runner.token.age".publicKeys = [ meow system ];
   "./services/self-hosted/vaultwarden/admin.token.age".publicKeys = [ meow system ];
 }

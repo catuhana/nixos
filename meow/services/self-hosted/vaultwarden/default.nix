@@ -1,4 +1,8 @@
-{ config, ... }: {
+{ config, ... }:
+let
+  serviceDomain = "vault.tuhana.me";
+in
+{
   services."vaultwarden" = {
     enable = true;
 
@@ -10,12 +14,12 @@
 
       DATABASE_URL = "postgresql://vaultwarden@localhost/vaultwarden";
 
-      DOMAIN = "https://vault.tuhana.me";
+      DOMAIN = "https://${serviceDomain}";
       SIGNUPS_ALLOWED = false;
     };
   };
 
-  services."caddy".virtualHosts."vault.tuhana.me" = {
+  services."caddy".virtualHosts."${serviceDomain}" = {
     extraConfig = ''
       @admin_redir {
         path /admin*
