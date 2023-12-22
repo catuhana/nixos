@@ -14,6 +14,12 @@
       });
     in
     {
+      devShells = forEachSupportedSystem ({ pkgs }: {
+        default = pkgs.mkShell {
+          packages = with pkgs; [ git github-cli vim nixpkgs-fmt ];
+        };
+      });
+
       nixosConfigurations = {
         "meow" = nixpkgs.lib.nixosSystem {
           system = "aarch64-linux";
@@ -29,11 +35,5 @@
           ];
         };
       };
-
-      devShells = forEachSupportedSystem ({ pkgs }: {
-        default = pkgs.mkShell {
-          packages = with pkgs; [ git github-cli vim nixpkgs-fmt ];
-        };
-      });
     };
 }

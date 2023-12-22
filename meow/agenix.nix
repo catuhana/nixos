@@ -2,6 +2,7 @@
   age.secrets = {
     "users.meow.password" = {
       file = ./users/meow/password.age;
+      owner = "meow";
     };
 
     "services.self-hosted.forgejo.gitea-actions-runner.token" = {
