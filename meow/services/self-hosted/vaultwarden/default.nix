@@ -3,7 +3,7 @@ let
   serviceDomain = "vault.tuhana.me";
 in
 {
-  services."vaultwarden" = {
+  services.vaultwarden = {
     enable = true;
 
     dbBackend = "postgresql";

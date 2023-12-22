@@ -3,7 +3,7 @@ let
   serviceDomain = "git.tuhana.me";
 in
 {
-  services."forgejo" = {
+  services.forgejo = {
     enable = true;
 
     database.type = "postgres";
@@ -25,7 +25,7 @@ in
     };
   };
 
-  services."gitea-actions-runner".instances."forgejo" = {
+  services.gitea-actions-runner.instances."forgejo" = {
     enable = true;
 
     name = config.networking.hostName;
@@ -35,7 +35,7 @@ in
     labels = [ "native:host" ];
   };
 
-  services."caddy".virtualHosts."${serviceDomain}" = {
+  services.caddy.virtualHosts."${serviceDomain}" = {
     extraConfig = ''
       reverse_proxy localhost:${toString config.services."forgejo".settings.server.HTTP_PORT}
     '';
