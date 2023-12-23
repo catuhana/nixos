@@ -2,7 +2,7 @@
   services.syncthing.relay = {
     enable = true;
 
-    providedBy = "Syncthing Relay by tuhana.me";
+    providedBy = "tuhana.me";
     
     extraOptions = [ "-pprof" ];
   };

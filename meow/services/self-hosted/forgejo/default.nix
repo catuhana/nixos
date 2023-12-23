@@ -15,7 +15,7 @@ in
         HTTP_PORT = 10000;
 
         ROOT_URL = "https://${serviceDomain}";
-        DOMAIN = "git.tuhana.me";
+        DOMAIN = "${serviceDomain}";
         DISABLE_SSH = true;
       };
 
