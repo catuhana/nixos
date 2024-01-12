@@ -1,1 +1,1 @@
-{ ... }: { imports = [ ./forgejo ./vaultwarden ./syncthing-relay ]; }
+{ ... }: { imports = [ ./forgejo ./minecraft ./vaultwarden ./syncthing-relay ]; }
