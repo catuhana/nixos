@@ -28,7 +28,7 @@
       gamemode = "survival";
       difficulty = "normal";
 
-      motd = "\u00a75Oda \u00a7d\u00a7l\u00a7n242";
+      motd = "\\u00a75Oda \\u00a7d\\u00a7l\\u00a7n242";
 
       white-list = true;
     };

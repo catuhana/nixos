@@ -1,10 +1,12 @@
-{ config, ... }:
+{ config, lib, ... }:
 let
+  self = config.services.forgejo;
+
   serviceDomain = "git.tuhana.me";
 in
 {
   services.forgejo = {
-    enable = true;
+    enable = false;
 
     database.type = "postgres";
 
@@ -25,7 +27,7 @@ in
     };
   };
 
-  services.gitea-actions-runner.instances."forgejo" = {
+  services.gitea-actions-runner.instances."forgejo" = lib.mkIf self.enable {
     enable = true;
 
     name = config.networking.hostName;
@@ -35,7 +37,17 @@ in
     labels = [ "native:host" ];
   };
 
-  services.caddy.virtualHosts."${serviceDomain}" = {
+  services.postgresql = lib.mkIf self.enable {
+    ensureUsers = config.services.postgresql.ensureUsers ++ [
+      {
+        name = "forgejo";
+        ensureDBOwnership = true;
+      }
+    ];
+    ensureDatabases = config.services.postgresql.ensureDatabases ++ [ "forgejo" ];
+  };
+
+  services.caddy.virtualHosts."${serviceDomain}" = lib.mkIf self.enable {
     extraConfig = ''
       reverse_proxy localhost:${toString config.services."forgejo".settings.server.HTTP_PORT}
     '';
