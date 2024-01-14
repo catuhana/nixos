@@ -32,6 +32,12 @@
             ./config.nix
 
             agenix.nixosModules.default
+
+            (args: {
+              nixpkgs.overlays = [
+                (import ./meow/overlays/papermc.nix)
+              ];
+            })
           ];
         };
       };
