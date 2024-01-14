@@ -2,6 +2,8 @@
 let
   self = config.services.forgejo;
 
+  postgresqlCfg = config.services.postgresql;
+
   serviceDomain = "git.tuhana.me";
 in
 {
@@ -38,18 +40,18 @@ in
   };
 
   services.postgresql = lib.mkIf self.enable {
-    ensureUsers = config.services.postgresql.ensureUsers ++ [
+    ensureUsers = postgresqlCfg.ensureUsers ++ [
       {
         name = "forgejo";
         ensureDBOwnership = true;
       }
     ];
-    ensureDatabases = config.services.postgresql.ensureDatabases ++ [ "forgejo" ];
+    ensureDatabases = postgresqlCfg.ensureDatabases ++ [ "forgejo" ];
   };
 
   services.caddy.virtualHosts."${serviceDomain}" = lib.mkIf self.enable {
     extraConfig = ''
-      reverse_proxy localhost:${toString config.services."forgejo".settings.server.HTTP_PORT}
+      reverse_proxy localhost:${toString self.settings.server.HTTP_PORT}
     '';
   };
 }

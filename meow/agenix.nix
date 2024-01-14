@@ -1,6 +1,7 @@
 { config, lib, ... }:
 let
   forgejoCfg = config.services.forgejo;
+  vaultwardenCfg = config.services.vaultwarden;
 in {
   age.secrets = {
     "users.meow.password" = {
@@ -14,7 +15,7 @@ in {
       group = "forgejo";
     };
 
-    "services.self-hosted.vaultwarden.admin.token" = {
+    "services.self-hosted.vaultwarden.admin.token" = lib.mkIf vaultwardenCfg.enable {
       file = ./services/self-hosted/vaultwarden/admin.token.age;
       owner = "vaultwarden";
       group = "vaultwarden";

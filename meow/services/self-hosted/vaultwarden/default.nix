@@ -1,10 +1,14 @@
-{ config, ... }:
+{ config, lib, ... }:
 let
+  self = config.services.vaultwarden;
+
+  postgresqlCfg = config.services.postgresql;
+
   serviceDomain = "vault.tuhana.me";
 in
 {
   services.vaultwarden = {
-    enable = true;
+    enable = false;
 
     dbBackend = "postgresql";
     environmentFile = config.age.secrets."services.self-hosted.vaultwarden.admin.token".path;
@@ -19,7 +23,17 @@ in
     };
   };
 
-  services."caddy".virtualHosts."${serviceDomain}" = {
+  services.postgresql = lib.mkIf self.enable {
+    ensureUsers = postgresqlCfg.ensureUsers ++ [
+      {
+        name = "vaultwarden";
+        ensureDBOwnership = true;
+      }
+    ];
+    ensureDatabases = postgresqlCfg.ensureDatabases ++ [ "vaultwarden" ];
+  };
+
+  services."caddy".virtualHosts."${serviceDomain}" = lib.mkIf self.enable {
     extraConfig = ''
       @admin_redir {
         path /admin*
