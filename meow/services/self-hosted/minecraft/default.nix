@@ -15,6 +15,7 @@ in {
     whitelist = {
       catuhana = "46854c64-da1e-3955-bf52-6b9eca8aec41";
       IBullseyea04 = "ae3031b7-e4e8-30f9-88fe-1be2fb5aecc8";
+      ".IBullseyea04" = "00000000-0000-0000-0009-01f023c840ee";
       qPANGEAp = "3d7153bb-de64-3b09-830b-987bf69dbba1";
       yasins = "be20e18d-af06-3324-9f56-711be5463212";
     };
