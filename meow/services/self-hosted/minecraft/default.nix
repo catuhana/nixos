@@ -38,10 +38,8 @@ in {
     };
   };
 
-  networking = lib.mkIf self.enable {
-    firewall = {
-      allowedTCPPorts = [ 25565 19132 ];
-      allowedUDPPorts = [ 25565 19132 ];
-    };
+  networking.firewall = lib.mkIf self.enable {
+    allowedTCPPorts = [ 25565 19132 ];
+    allowedUDPPorts = [ 25565 19132 ];
   };
 }

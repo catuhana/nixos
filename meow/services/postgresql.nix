@@ -1,5 +1,5 @@
 { lib, ... }: {
-  services."postgresql" = {
+  services.postgresql = {
     enable = true;
     enableJIT = true;
 

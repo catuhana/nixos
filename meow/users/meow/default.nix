@@ -2,7 +2,6 @@
   users = {
     users.meow = {
       isNormalUser = true;
-      description = "tuhana";
       hashedPasswordFile = config.age.secrets."users.meow.password".path;
       extraGroups = [ "wheel" ];
 
