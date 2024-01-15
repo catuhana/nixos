@@ -1,11 +1,12 @@
 { lib, ... }: {
   networking = {
     hostName = "meow";
+
     useNetworkd = true;
 
     dhcpcd.enable = false;
 
-    firewall.allowedTCPPorts = [ 22 80 443 22067 22070 ];
+    firewall.allowedTCPPorts = [ 22 80 443 ];
     firewall.allowedUDPPorts = [ 443 ];
 
     nameservers = [ "1.1.1.1" "1.0.0.1" ];

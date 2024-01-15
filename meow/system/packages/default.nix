@@ -1,1 +1,1 @@
-{ pkgs, inputs, ... }: { imports = [ ./system.nix ./zsh.nix ]; }
+{ ... }: { imports = [ ./system.nix ]; }
