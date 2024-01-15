@@ -2,7 +2,8 @@
 let
   forgejoCfg = config.services.forgejo;
   vaultwardenCfg = config.services.vaultwarden;
-in {
+in
+{
   age.secrets = {
     "users.meow.password" = {
       file = ./users/meow/password.age;

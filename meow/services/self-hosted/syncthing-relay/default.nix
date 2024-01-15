@@ -1,12 +1,13 @@
 { config, lib, ... }:
 let
   self = config.services.syncthing.relay;
-in {
+in
+{
   services.syncthing.relay = {
     enable = true;
 
     providedBy = "tuhana.me";
-    
+
     extraOptions = [ "-pprof" ];
   };
 

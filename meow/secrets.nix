@@ -1,4 +1,4 @@
-{ config, lib, ...}:
+{ config, lib, ... }:
 let
   forgejoCfg = config.services.forgejo;
   vaultwardenCfg = config.services.vaultwarden;

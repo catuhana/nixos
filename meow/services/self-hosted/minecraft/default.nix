@@ -1,7 +1,8 @@
 { config, pkgs, lib, ... }:
 let
   self = config.services.minecraft-server;
-in {
+in
+{
   services.minecraft-server = {
     enable = true;
 

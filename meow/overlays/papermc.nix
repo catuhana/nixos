@@ -1,6 +1,7 @@
 let
   version = "1.20.4.385";
-in (final: prev: {
+in
+(final: prev: {
   papermc = prev.papermc.overrideAttrs (old: {
     version = version;
 
