@@ -1,4 +1,7 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }:
+let
+  self = config.services.minecraft-server;
+in {
   services.minecraft-server = {
     enable = true;
 
@@ -11,7 +14,7 @@
 
     whitelist = {
       catuhana = "46854c64-da1e-3955-bf52-6b9eca8aec41";
-      IBullseyea04 = "c6f944e4-9cab-4aa4-995a-aedef862ebc2";
+      IBullseyea04 = "ae3031b7-e4e8-30f9-88fe-1be2fb5aecc8";
       qPANGEAp = "3d7153bb-de64-3b09-830b-987bf69dbba1";
       yasins = "be20e18d-af06-3324-9f56-711be5463212";
     };
@@ -31,6 +34,13 @@
       motd = "\\u00a75Oda \\u00a7d\\u00a7l\\u00a7n242";
 
       white-list = true;
+    };
+  };
+
+  networking = mkIf self.enable {
+    firewall = {
+      allowedTCPPorts = [ 25565, 19132 ];
+      allowedUDPPorts = [ 25565, 19132 ];
     };
   };
 }
