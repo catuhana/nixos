@@ -39,8 +39,8 @@ in {
 
   networking = mkIf self.enable {
     firewall = {
-      allowedTCPPorts = [ 25565, 19132 ];
-      allowedUDPPorts = [ 25565, 19132 ];
+      allowedTCPPorts = [ 25565 19132 ];
+      allowedUDPPorts = [ 25565 19132 ];
     };
   };
 }

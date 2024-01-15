@@ -5,8 +5,8 @@
 
     dhcpcd.enable = false;
 
-    firewall.allowedTCPPorts = [ 22 80 443 22067 22070 25565 19132 ];
-    firewall.allowedUDPPorts = [ 443 25565 19132 ];
+    firewall.allowedTCPPorts = [ 22 80 443 22067 22070 ];
+    firewall.allowedUDPPorts = [ 443 ];
 
     nameservers = [ "1.1.1.1" "1.0.0.1" ];
   };

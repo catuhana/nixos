@@ -2,8 +2,6 @@
 let
   self = config.services.forgejo;
 
-  postgresqlCfg = config.services.postgresql;
-
   serviceDomain = "git.tuhana.me";
 in
 {
@@ -35,8 +33,6 @@ in
     name = config.networking.hostName;
     url = "https://${serviceDomain}";
     tokenFile = config.age.secrets."services.self-hosted.forgejo.gitea-actions-runner.token".path;
-
-    labels = [ "native:host" ];
   };
 
   services.postgresql = lib.mkIf self.enable {
