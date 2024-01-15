@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 let
   self = config.services.minecraft-server;
 in {
@@ -37,7 +37,7 @@ in {
     };
   };
 
-  networking = mkIf self.enable {
+  networking = lib.mkIf self.enable {
     firewall = {
       allowedTCPPorts = [ 25565 19132 ];
       allowedUDPPorts = [ 25565 19132 ];
