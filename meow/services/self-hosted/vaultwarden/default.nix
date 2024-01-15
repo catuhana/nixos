@@ -2,8 +2,6 @@
 let
   self = config.services.vaultwarden;
 
-  postgresqlCfg = config.services.postgresql;
-
   serviceDomain = "vault.tuhana.me";
 in
 {
@@ -24,13 +22,13 @@ in
   };
 
   services.postgresql = lib.mkIf self.enable {
-    ensureUsers = postgresqlCfg.ensureUsers ++ [
+    ensureUsers = [
       {
         name = "vaultwarden";
         ensureDBOwnership = true;
       }
     ];
-    ensureDatabases = postgresqlCfg.ensureDatabases ++ [ "vaultwarden" ];
+    ensureDatabases = [ "vaultwarden" ];
   };
 
   services."caddy".virtualHosts."${serviceDomain}" = lib.mkIf self.enable {
@@ -51,7 +49,7 @@ in
         -Last-Modified
       }
 
-      reverse_proxy localhost:${toString config.services.vaultwarden.config.ROCKET_PORT}
+      reverse_proxy localhost:${toString self.config.ROCKET_PORT}
     '';
   };
 }

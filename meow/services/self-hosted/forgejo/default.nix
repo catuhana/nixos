@@ -40,13 +40,13 @@ in
   };
 
   services.postgresql = lib.mkIf self.enable {
-    ensureUsers = postgresqlCfg.ensureUsers ++ [
+    ensureUsers = [
       {
         name = "forgejo";
         ensureDBOwnership = true;
       }
     ];
-    ensureDatabases = postgresqlCfg.ensureDatabases ++ [ "forgejo" ];
+    ensureDatabases = [ "forgejo" ];
   };
 
   services.caddy.virtualHosts."${serviceDomain}" = lib.mkIf self.enable {
