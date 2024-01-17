@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }:
 let
-  self = config.services.minecraft-server;
+  cfg = config.services.minecraft-server;
 in
 {
   services.minecraft-server = {
@@ -40,7 +40,7 @@ in
     };
   };
 
-  networking.firewall = lib.mkIf self.enable {
+  networking.firewall = lib.mkIf cfg.enable {
     allowedTCPPorts = [ 25565 19132 ];
     allowedUDPPorts = [ 25565 19132 ];
   };

@@ -1,6 +1,6 @@
 { config, lib, ... }:
 let
-  self = config.services.vaultwarden;
+  cfg = config.services.vaultwarden;
 
   serviceDomain = "vault.tuhana.me";
 in
@@ -21,7 +21,7 @@ in
     };
   };
 
-  services.postgresql = lib.mkIf self.enable {
+  services.postgresql = lib.mkIf cfg.enable {
     ensureUsers = [
       {
         name = "vaultwarden";
@@ -31,7 +31,7 @@ in
     ensureDatabases = [ "vaultwarden" ];
   };
 
-  services."caddy".virtualHosts."${serviceDomain}" = lib.mkIf self.enable {
+  services."caddy".virtualHosts."${serviceDomain}" = lib.mkIf cfg.enable {
     extraConfig = ''
       @admin_redir {
         path /admin*
@@ -49,7 +49,7 @@ in
         -Last-Modified
       }
 
-      reverse_proxy localhost:${toString self.config.ROCKET_PORT}
+      reverse_proxy localhost:${toString cfg.config.ROCKET_PORT}
     '';
   };
 }

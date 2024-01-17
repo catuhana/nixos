@@ -1,6 +1,6 @@
 { config, lib, ... }:
 let
-  self = config.services.syncthing.relay;
+  cfg = config.services.syncthing.relay;
 in
 {
   services.syncthing.relay = {
@@ -11,5 +11,5 @@ in
     extraOptions = [ "-pprof" ];
   };
 
-  networking.firewall.allowedTCPPorts = lib.mkIf self.enable [ self.statusPort self.port ];
+  networking.firewall.allowedTCPPorts = lib.mkIf cfg.enable [ cfg.statusPort cfg.port ];
 }
