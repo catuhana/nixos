@@ -2,7 +2,7 @@
 let
   cfg = config.services.vaultwarden;
 
-  serviceDomain = "vault.tuhana.me";
+  serviceDomain = "vault.${config.networking.domain}";
 in
 {
   services.vaultwarden = {

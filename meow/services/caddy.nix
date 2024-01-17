@@ -6,7 +6,7 @@ in
   services.caddy = {
     enable = true;
 
-    email = "acme@tuhana.me";
+    email = "acme@${config.networking.domain}";
 
     logFormat = lib.mkForce ''
       level INFO

@@ -2,7 +2,7 @@
 let
   cfg = config.services.forgejo;
 
-  serviceDomain = "git.tuhana.me";
+  serviceDomain = "git.${config.networking.domain}";
 in
 {
   services.forgejo = {

@@ -6,7 +6,7 @@ in
   services.syncthing.relay = {
     enable = true;
 
-    providedBy = "tuhana.me";
+    providedBy = config.networking.domain;
 
     extraOptions = [ "-pprof" ];
   };

@@ -1,6 +1,7 @@
 { lib, ... }: {
   networking = {
     hostName = "meow";
+    domain = "tuhana.me";
 
     useNetworkd = true;
 
