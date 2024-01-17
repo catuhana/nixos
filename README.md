@@ -1,1 +1,1 @@
-# server
+# NixOS Configurations
