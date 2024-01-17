@@ -16,19 +16,20 @@ in
     whitelist = {
       catuhana = "46854c64-da1e-3955-bf52-6b9eca8aec41";
       IBullseyea04 = "ae3031b7-e4e8-30f9-88fe-1be2fb5aecc8";
-      ".IBullseyea04" = "00000000-0000-0000-0009-01f023c840ee";
       qPANGEAp = "3d7153bb-de64-3b09-830b-987bf69dbba1";
       yasins = "be20e18d-af06-3324-9f56-711be5463212";
     };
 
     serverProperties = {
       level-name = "242";
+
       online-mode = false;
       max-players = 5;
+      pvp = false;
 
       sync-chunk-writes = false;
-      view-distance = 12;
-      simulation-distance = 12;
+      view-distance = 32;
+      simulation-distance = 16;
 
       gamemode = "survival";
       difficulty = "normal";
