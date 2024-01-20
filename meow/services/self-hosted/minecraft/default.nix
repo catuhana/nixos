@@ -28,8 +28,8 @@ in
       pvp = false;
 
       sync-chunk-writes = false;
-      view-distance = 32;
-      simulation-distance = 16;
+      view-distance = 12;
+      simulation-distance = 12;
 
       gamemode = "survival";
       difficulty = "normal";
