@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     agenix.url = "github:ryantm/agenix";
+
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
   outputs = inputs@{ self, nixpkgs, agenix, ... }:
@@ -32,12 +34,6 @@
             ./config.nix
 
             agenix.nixosModules.default
-
-            (args: {
-              nixpkgs.overlays = [
-                (import ./overlays/papermc.nix)
-              ];
-            })
           ];
         };
       };
