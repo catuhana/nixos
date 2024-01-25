@@ -27,7 +27,7 @@
           specialArgs = { inherit inputs; };
 
           modules = [
-            ./meow
+            ./systems
 
             ./config.nix
 
@@ -35,7 +35,7 @@
 
             (args: {
               nixpkgs.overlays = [
-                (import ./meow/overlays/papermc.nix)
+                (import ./overlays/papermc.nix)
               ];
             })
           ];
