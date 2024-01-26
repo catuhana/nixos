@@ -18,7 +18,7 @@
     {
       devShells = forEachSupportedSystem ({ pkgs }: {
         default = pkgs.mkShell {
-          packages = with pkgs; [ git github-cli vim nixpkgs-fmt ];
+          packages = with pkgs; [ git github-cli nixpkgs-fmt vim tmux ];
         };
       });
 

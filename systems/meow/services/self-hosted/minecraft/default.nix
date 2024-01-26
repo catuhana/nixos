@@ -61,6 +61,12 @@ in
               hash = "sha256-as1JWV7mnhJkz8eYmPVpRS5BvWaYVGf8s40oBBka880=";
             };
 
+          Starlight = fetchurl
+            {
+              url = "https://cdn.modrinth.com/data/H8CaAYZC/versions/HZYU0kdg/starlight-1.1.3%2Bfabric.f5dcd1a.jar";
+              hash = "sha256-vfOj8cRwiU2NJHJsEuieswnHxG2G/4UnSQxc5btnuYk=";
+            };
+
           FerriteCore = fetchurl {
             url = "https://cdn.modrinth.com/data/uXXizFIs/versions/pguEMpy9/ferritecore-6.0.3-fabric.jar";
             hash = "sha256-ZphO6VxKsFqDxDew3QRWikosjn8hm3SYYE4llSxMwSU=";
