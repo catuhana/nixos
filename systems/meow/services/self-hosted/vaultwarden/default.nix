@@ -6,7 +6,7 @@ let
 in
 {
   services.vaultwarden = {
-    enable = false;
+    enable = true;
 
     dbBackend = "postgresql";
     environmentFile = config.age.secrets."services.self-hosted.vaultwarden.admin.token".path;
