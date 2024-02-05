@@ -9,7 +9,7 @@ in
     enable = true;
 
     dbBackend = "postgresql";
-    environmentFile = config.age.secrets."services.self-hosted.vaultwarden.admin.token".path;
+    environmentFile = config.sops.secrets."services/self-hosted/vaultwarden/admin-token".path;
 
     config = {
       ROCKET_PORT = 10010;

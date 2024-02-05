@@ -1,0 +1,9 @@
+keys:
+  - &mistress_tuhana age160anfjppnwets9fadc29zmgcghw7s6kgzmg6r9cf4cejtvfhld9qszd7vy
+  - &system_meow age1kq9x5jz4lvzmr09gad9g9msfwavwfrf3rnpzqe36n2dy4paemu4qsd83ya
+creation_rules:
+  - path_regex: systems\/meow\/secrets\/secrets\.ya?ml$
+    key_groups:
+      - age:
+        - *mistress_tuhana
+        - *system_meow

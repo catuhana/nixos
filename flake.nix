@@ -3,12 +3,16 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    agenix.url = "github:ryantm/agenix";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
-  outputs = inputs@{ self, nixpkgs, agenix, ... }:
+  outputs = inputs@{ self, nixpkgs, sops-nix, ... }:
     let
       supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forEachSupportedSystem = f: nixpkgs.lib.genAttrs supportedSystems (system: f {
@@ -33,7 +37,7 @@
 
             ./config.nix
 
-            agenix.nixosModules.default
+            sops-nix.nixosModules.sops
           ];
         };
       };

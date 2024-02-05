@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ lib, config, ... }:
 let
   cfg = config.services.forgejo;
 
@@ -17,7 +17,7 @@ in
         HTTP_PORT = 10000;
 
         ROOT_URL = "https://${serviceDomain}";
-        DOMAIN = "${serviceDomain}";
+        DOMAIN = serviceDomain;
         DISABLE_SSH = true;
       };
 
@@ -27,12 +27,16 @@ in
     };
   };
 
+  # FIXME: Gitea Actions service is broken, remember to fix when enabling Forgejo.
   services.gitea-actions-runner.instances."forgejo" = lib.mkIf cfg.enable {
     enable = true;
 
     name = config.networking.hostName;
     url = "https://${serviceDomain}";
-    tokenFile = config.age.secrets."services.self-hosted.forgejo.gitea-actions-runner.token".path;
+
+    tokenFile = config.sops.secrets."services/self-hosted/forgejo/gitea-actions-runner/registration-token".path;
+
+    labels = [ "native:host" ];
   };
 
   services.postgresql = lib.mkIf cfg.enable {

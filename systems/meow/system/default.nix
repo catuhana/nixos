@@ -1,6 +1,6 @@
-{ ... }: {
+{
   imports = [
-    ./packages
+    ./programs
 
     ./boot.nix
     ./filesystems.nix

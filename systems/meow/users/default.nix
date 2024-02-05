@@ -1,1 +1,1 @@
-{ ... }: { imports = [ ./meow ]; }
+{ imports = [ ./meow.nix ]; }
