@@ -9,7 +9,7 @@ in
   nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
 
   services.minecraft-servers = {
-    enable = true;
+    enable = false;
 
     eula = true;
     openFirewall = true;
